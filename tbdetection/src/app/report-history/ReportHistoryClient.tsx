@@ -21,22 +21,24 @@ export default function ReportHistoryClient({ reports }: Props) {
 
     // Helper to safely parse notes like:
     // "Symptoms: {...}, History: {...}"
+    // Helper to safely parse notes like: "Symptoms: {...}, History: {...}"
     const parseNotes = (notes: string | undefined) => {
-        if (!notes || typeof notes !== "string") return {};
-        const result: Record<string, Record<string>> = {};
-        try {
-            const parts = notes.split(/(?<=}),\s*(?=\w+:)/); // split by "}, History:"
-            parts.forEach((part) => {
-                const [key, value] = part.split(/:\s*(\{.*\})/).filter(Boolean);
-                if (key && value) {
-                    result[key.trim()] = JSON.parse(value);
-                }
-            });
-        } catch (err) {
-            console.error("Failed to parse notes", err);
+    if (!notes || typeof notes !== "string") return {};
+    const result: Record<string, Record<string, any>> = {};
+    try {
+        const parts = notes.split(/(?<=}),\s*(?=\w+:)/); // split by "}, History:"
+        parts.forEach((part) => {
+        const [key, value] = part.split(/:\s*(\{.*\})/).filter(Boolean);
+        if (key && value) {
+            result[key.trim()] = JSON.parse(value);
         }
-        return result;
+        });
+    } catch (err) {
+        console.error("Failed to parse notes", err);
+    }
+    return result;
     };
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black p-6">
