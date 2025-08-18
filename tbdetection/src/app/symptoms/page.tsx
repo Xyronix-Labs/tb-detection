@@ -19,9 +19,20 @@ interface MedicalHistoryState {
   immunosuppressants: string;
 }
 
+// Reuse from user-info page if exported, but we redefine here for now:
+interface UserInfoForm {
+  name: string;
+  age: string;
+  gender: string;
+  weight: string;
+  height: string;
+  smoking: string;
+}
+
 export default function Symptoms() {
   const router = useRouter();
-  const [userInfo, setUserInfo] = useState<any>(null);
+  const [userInfo, setUserInfo] = useState<UserInfoForm | null>(null);
+
   const [symptoms, setSymptoms] = useState<SymptomsState>({
     cough: false,
     fever: false,
@@ -41,7 +52,7 @@ export default function Symptoms() {
   useEffect(() => {
     const data = localStorage.getItem("userInfo");
     if (data) {
-      setUserInfo(JSON.parse(data));
+      setUserInfo(JSON.parse(data) as UserInfoForm);
     } else {
       router.push("/user-info");
     }
@@ -51,13 +62,17 @@ export default function Symptoms() {
     setSymptoms({ ...symptoms, [e.target.name]: e.target.checked });
   };
 
-  const handleMedicalChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleMedicalChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setMedicalHistory({ ...medicalHistory, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
     const symptomSelected = Object.values(symptoms).some((val) => val);
-    const medicalComplete = Object.values(medicalHistory).every((val) => val !== "");
+    const medicalComplete = Object.values(medicalHistory).every(
+      (val) => val !== ""
+    );
 
     if (!symptomSelected) {
       alert("Please select at least one symptom");
@@ -77,7 +92,7 @@ export default function Symptoms() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-black px-4">
-      {/* your JSX stays the same */}
+      {/* TODO: Insert JSX form for symptoms + medical history */}
     </div>
   );
 }

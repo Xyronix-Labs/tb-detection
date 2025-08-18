@@ -1,11 +1,19 @@
-// src/app/user-info/page.js
 "use client";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
+
+interface UserInfoForm {
+  name: string;
+  age: string;
+  gender: string;
+  weight: string;
+  height: string;
+  smoking: string;
+}
 
 export default function UserInfo() {
   const router = useRouter();
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<UserInfoForm>({
     name: "",
     age: "",
     gender: "",
@@ -14,12 +22,21 @@ export default function UserInfo() {
     smoking: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleNext = () => {
-    if (!form.name || !form.age || !form.gender || !form.weight || !form.height || !form.smoking) {
+    if (
+      !form.name ||
+      !form.age ||
+      !form.gender ||
+      !form.weight ||
+      !form.height ||
+      !form.smoking
+    ) {
       alert("Please fill all fields");
       return;
     }
