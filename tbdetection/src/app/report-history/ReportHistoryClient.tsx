@@ -23,7 +23,7 @@ export default function ReportHistoryClient({ reports }: Props) {
     // "Symptoms: {...}, History: {...}"
     const parseNotes = (notes: string | undefined) => {
         if (!notes || typeof notes !== "string") return {};
-        const result: Record<string, Record<string, any>> = {};
+        const result: Record<string, Record<string>> = {};
         try {
             const parts = notes.split(/(?<=}),\s*(?=\w+:)/); // split by "}, History:"
             parts.forEach((part) => {

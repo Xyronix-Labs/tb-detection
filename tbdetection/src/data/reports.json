@@ -36,5 +36,19 @@
     "reportType": "Summary Report",
     "result": "Pending Review",
     "notes": "Symptoms: {\"cough\":true,\"fever\":true,\"nightSweats\":true,\"weightLoss\":false,\"fatigue\":true,\"chestPain\":true,\"lossOfAppetite\":true}, History: {\"diabetes\":\"Positive\",\"hivStatus\":\"Positive\",\"immunosuppressants\":\"Positive\"}"
+  },
+  {
+    "id": 5,
+    "date": "2025-08-18",
+    "reportType": "Summary Report",
+    "result": "Pending Review",
+    "notes": "Symptoms: {\"cough\":true,\"fever\":false,\"nightSweats\":true,\"weightLoss\":false,\"fatigue\":true,\"chestPain\":false,\"lossOfAppetite\":false}, History: {\"diabetes\":\"Negative\",\"hivStatus\":\"Negative\",\"immunosuppressants\":\"Negative\"}"
+  },
+  {
+    "id": 6,
+    "date": "2025-08-18",
+    "reportType": "Summary Report",
+    "result": "Pending Review",
+    "notes": "Symptoms: {\"cough\":false,\"fever\":true,\"nightSweats\":false,\"weightLoss\":true,\"fatigue\":false,\"chestPain\":true,\"lossOfAppetite\":false}, History: {\"diabetes\":\"Negative\",\"hivStatus\":\"Negative\",\"immunosuppressants\":\"Negative\"}"
   }
 ]
