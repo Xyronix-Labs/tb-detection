@@ -22,9 +22,13 @@ export default function ReportHistoryClient({ reports }: Props) {
     // Helper to safely parse notes like:
     // "Symptoms: {...}, History: {...}"
     // Helper to safely parse notes like: "Symptoms: {...}, History: {...}"
-    const parseNotes = (notes: string | undefined) => {
+    // Define a type for the parsed notes structure
+    type ParsedNotes = Record<string, Record<string, string | number | boolean>>;
+
+    // Update parseNotes to use the type
+    const parseNotes = (notes: string | undefined): ParsedNotes => {
     if (!notes || typeof notes !== "string") return {};
-    const result: Record<string, Record<string, any>> = {};
+    const result: ParsedNotes = {};
     try {
         const parts = notes.split(/(?<=}),\s*(?=\w+:)/); // split by "}, History:"
         parts.forEach((part) => {
@@ -38,6 +42,7 @@ export default function ReportHistoryClient({ reports }: Props) {
     }
     return result;
     };
+
 
 
     return (
