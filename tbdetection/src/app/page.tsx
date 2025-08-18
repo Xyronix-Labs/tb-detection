@@ -46,9 +46,13 @@ export default function Dashboard() {
           <button className="py-2 px-3 hover:bg-gray-700 rounded-lg" onClick={() => router.push("/appointment")}>
             Appointment
           </button>
-          <button className="py-2 px-3 hover:bg-gray-700 rounded-lg text-red-400" onClick={() => router.push("/report-history")}>
+          <button
+            className="py-2 px-3 hover:bg-gray-700 rounded-lg text-red-400"
+            onClick={() => router.push("/report-history")}
+          >
             Report History
           </button>
+
           <button className="py-2 px-3 hover:bg-gray-700 rounded-lg">Doctor</button>
           <button className="py-2 px-3 hover:bg-gray-700 rounded-lg">Message</button>
           <button className="py-2 px-3 hover:bg-gray-700 rounded-lg">Settings</button>

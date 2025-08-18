@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "userEmail": "john@example.com",
+    "date": "2025-08-18",
+    "reportType": "TB Screening",
+    "result": "Positive",
+    "notes": {
+      "cough": true,
+      "fever": false,
+      "fatigue": true
+    }
+  },
+  {
+    "id": 2,
+    "userEmail": "jane@example.com",
+    "date": "2025-08-17",
+    "reportType": "TB Screening",
+    "result": "Negative",
+    "notes": {
+      "cough": false,
+      "fever": false,
+      "fatigue": false
+    }
+  },
+  {
+    "id": 3,
+    "date": "2025-08-18",
+    "reportType": "Summary Report",
+    "result": "Pending Review",
+    "notes": "Symptoms: {\"cough\":true,\"fever\":true,\"nightSweats\":true,\"weightLoss\":true,\"fatigue\":true,\"chestPain\":true,\"lossOfAppetite\":false}, History: {\"diabetes\":\"Positive\",\"hivStatus\":\"Positive\",\"immunosuppressants\":\"Positive\"}"
+  },
+  {
+    "id": 4,
+    "date": "2025-08-18",
+    "reportType": "Summary Report",
+    "result": "Pending Review",
+    "notes": "Symptoms: {\"cough\":true,\"fever\":true,\"nightSweats\":true,\"weightLoss\":false,\"fatigue\":true,\"chestPain\":true,\"lossOfAppetite\":true}, History: {\"diabetes\":\"Positive\",\"hivStatus\":\"Positive\",\"immunosuppressants\":\"Positive\"}"
+  }
+]
